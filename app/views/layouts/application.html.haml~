@@ -1,7 +1,6 @@
 !!!
 %html
   %head
-    <link href='http://fonts.googleapis.com/css?family=Londrina+Outline|Jacques+Francois|Spirax|Kavoon' rel='stylesheet' type='text/css'>
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Abstract Initiative"
       %meta{:content => content_for?(:description) ? yield(:description) : "Abstract Initiative", :name => "description"}
@@ -17,8 +16,16 @@
       .container
         .span12
           .content                    
-            = render 'layouts/messages'
-            = yield
+            .row-fluid
+              .span3
+                .highlight
+                  = render 'layouts/highlight'
+              .span6
+                = render 'layouts/messages'
+                = yield
+              .span3
+                .ads
+                  = render 'layouts/ads'
           %footer
       / ! end of .container
     / ! end of #main

@@ -1,4 +1,12 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+.row-fluid
+  .span8{:style => "border-right:1px solid gray;"}
+    %h1 This is our abstract initiative.
+    %h2 Join...Us....
+  .span4
+    %h3 New Users This Week
+    - User.all.in_groups_of(4) do |row|
+      .row-fluid
+        -row.each do |user|
+          .span3
+            - if not user.nil?
+              = render "users/thumbnail", :user => user
