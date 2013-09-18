@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   def profile_pic
-    prof_pic or "/assets/placeholder.png"
+    prof_pic or "/assets/profile-placeholder.png"
+  end
+
+  def types
+    "Paintings, Fiction, Screenplays"
   end
   
 end

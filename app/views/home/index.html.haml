@@ -1,12 +1,22 @@
 .row-fluid
   .span8{:style => "border-right:1px solid gray;"}
     %h1 This is our abstract initiative.
-    %h2 Join...Us....
+    %p So here's what I think we're trying to do: We're trying to provide a root system for artists of all kinds. A system for artists to gather and both collect, and deliver "nutrients" (opportunities, networking, jobs, other artists, etc.). Essentially, we want to grow a healthy tree, or a healthy, efficient network for artists to be artists.
+    %p  I agree. However, I also think that we should have an element of exclusivity. We're not trying to be deviant art. Yes, we are trying to foster growth and networking/collaboration between artists, but I don't think this is a thing that should be wide open to the public. The people that we choose to involve should be selected carefully. They do not need to hold similar ideals to us/ the rest of the group, but they should mesh in some way.  
+    .row
+      .span3
+        &nbsp;
+      .span6
+        = link_to "Explore The Site", tour_path, {:class => "btn btn-inverse"}
+        = link_to "Join The Initiative", new_user_registration_path, {:class => "btn btn-primary"}
+      .span3
+        &nbsp;
   .span4
-    %h3 New Users This Week
-    - User.all.in_groups_of(4) do |row|
+    %h3{:style=>"text-align:center;"} New Users This Week
+    %hr/
+    - User.all.in_groups_of(2) do |row|
       .row-fluid
         -row.each do |user|
-          .span3
+          .span6
             - if not user.nil?
               = render "users/thumbnail", :user => user

@@ -5,11 +5,13 @@ AbstractInitiative::Application.routes.draw do
   root :to => "home#index"
 
   get '/about', :to => "home#about", :as => :about
-  get '/news', :to => "home#about", :as => :news
-  get '/artists', :to => "home#about", :as => :artists
-  get '/sections', :to => "home#about", :as => :sections
-  get '/random', :to => "home#about", :as => :random
+  get '/news', :to => "home#news", :as => :news
+  get '/artists', :to => "home#artists", :as => :artists
+  get '/sections', :to => "home#sections", :as => :sections
+  get '/random', :to => "home#random", :as => :random
 
+  get '/tour', :to => "home#tour", :as => :tour
+  
   devise_for :users
   resources :users
 end

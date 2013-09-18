@@ -56,3 +56,16 @@ border-left: 1px solid $borders;
 font-family: "Spirax", cursive;
 font-size:18px;
 }
+
+.username-link{
+font-family:sans-serif;
+color:#336699;
+font-weight:bold;
+&:hover{
+color:black;
+}
+}
+
+a.no-underline:hover{
+text-decoration:none;
+}

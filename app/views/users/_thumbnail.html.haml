@@ -1,5 +1,6 @@
 .user-thumbnail
-  .col-sm-6.col-md-3
-    %a.thumbnail{:href => user_path(user)}
-      %img.user-prof-pic{:src=>user.profile_pic, :alt => user.name}
+  %a.thumbnail.no-underline.username-link{:href => user_path(user), :style=>"text-align:center;"}
+    %img.user-prof-pic{:src=>user.profile_pic, :alt => user.name}
+    %span{:style => "display:inline-block;"}
       =user.name
+
