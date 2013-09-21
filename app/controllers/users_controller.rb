@@ -1,13 +1,21 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
-
   def index
     authorize! :index, @user, :message => 'Logged in as a NON-admin account.'
     @users = User.all
   end
 
   def show
+    Rails::logger.info "test"
     @user = User.find(params[:id])
+    if current_user == @user
+      redirect_to dashboard_path
+    end
+  end
+
+  def dashboard
+    if current_user.nil?
+      redirect_to new_user_session_path, message => "You'll need to log in to view your dashboard!"
+    end
   end
   
   def update

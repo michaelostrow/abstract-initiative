@@ -12,17 +12,20 @@ $borders: black;
 }
 
 body{
-  background: #1b1b1b;
+ background: #effaff;
+}
+
+#all{
+   font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif !important
 }
 
 .content{
-   background: white;
-   border:1px solid black;
-   border-bottom:4px solid black;
    margin-bottom:2em;
    border-top:none;
    padding:1em;
-   font-family: 'Jacques Francois', serif;
+   p{
+      font-family: 'Jacques Francois', serif;
+   }    
 }
 
 .highlight {
@@ -69,3 +72,24 @@ color:black;
 a.no-underline:hover{
 text-decoration:none;
 }
+
+.navbar_login{
+        margin-top:20px;
+        input[type=text], input[type=password]{
+        border-radius: 0px;
+        height: 10px;
+        width:150px;
+        position:relative;top:4px;
+        }
+        input[type=submit]{
+        height:25px;
+        }
+
+        font-family: sans-serif;
+
+        a.password_forgot{
+        font-size:11px;
+        position:relative;left:200px;bottom:6px;
+        }
+}
+
