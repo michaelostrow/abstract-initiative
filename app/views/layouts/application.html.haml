@@ -12,7 +12,10 @@
   %body#all{:class => "#{controller_name} #{action_name}"}
     .navbar.navbar-inverse.navbar-static-top#navbar
       .navbar-inner
-        = render 'layouts/navigation'
+        - if current_user
+          = render 'layouts/navigation'
+        - else
+          = render 'layouts/navigation_stranger'
     #main{:role => "main"}
       .container
         .span12
