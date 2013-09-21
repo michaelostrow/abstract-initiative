@@ -23,7 +23,7 @@ body{
    margin-bottom:2em;
    border-top:none;
    padding:1em;
-   p{
+   p.display{
       font-family: 'Jacques Francois', serif;
    }    
 }
@@ -93,3 +93,8 @@ text-decoration:none;
         }
 }
 
+.hero-unit.welcome{
+text-align:center;
+border-radius:3px;
+background: inherit;
+}

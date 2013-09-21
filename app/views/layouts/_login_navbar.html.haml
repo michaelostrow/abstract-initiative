@@ -1,5 +1,5 @@
 %div.navbar_login
-  = form_for("user", :url => new_user_session_path, :html => {:class => 'pull-right' }) do |f|
+  = form_for("usernavbar", :url => new_user_session_path, :html => {:class => 'pull-right' }) do |f|
     = f.text_field :email, :autofocus => true, :style => "font-size:12px;"
     = f.password_field :password, :style => "font-size:12px;"
     = f.submit "Sign in", :class => 'btn-primary'

@@ -10,12 +10,18 @@ AbstractInitiative::Application.routes.draw do
   get '/sections', :to => "home#sections", :as => :sections
   get '/random', :to => "home#random", :as => :random
 
-  get '/support/feedback', :to => "home#contact", :as => :contact
+  get '/confirming', :to => "home#confirming", :as => :confirming
   
-  get '/tour', :to => "home#tour", :as => :tour
-
+  get '/support/feedback', :to => "home#contact", :as => :contact
+ 
   get '/dashboard', :to => "users#dashboard", :as => :dashboard 
   
-  devise_for :users
-  resources :users
+  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
+  devise_scope :user do
+    get '/welcome', :to => "home#tour", :as => :tour
+    get '/tour', :to => "home#tour2", :as => :tour2
+  end
+  
+  resources :users, :only => [:index, :show]
+  
 end

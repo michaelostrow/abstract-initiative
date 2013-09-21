@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
@@ -14,8 +14,4 @@ class User < ActiveRecord::Base
     prof_pic or "/assets/profile-placeholder.png"
   end
 
-  def types
-    "Paintings, Fiction, Screenplays"
-  end
-  
 end

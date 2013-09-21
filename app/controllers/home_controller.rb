@@ -7,4 +7,13 @@ class HomeController < ApplicationController
     render :layout => "stranger"
   end
 
+  def tour
+    @user = current_user
+    render :layout => "application"
+  end
+
+  def confirming    
+    redirect_to root_path if flash.none?
+  end
+  
 end
