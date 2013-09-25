@@ -8,15 +8,12 @@ $borders: black;
     padding-left:35px;
     padding-top:25px;
     font-size:50px;
-    font-family: "Passion One", cursive;
+    font-family: "Passion One" !important;
 }
 
 body{
  background: #effaff;
-}
-
-#all{
-   font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif !important
+ font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 .content{
