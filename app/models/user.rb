@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   validates :name, :presence => true
-
+  
   def active_for_authentication?
-    true
+    false
   end
   
   def profile_pic
