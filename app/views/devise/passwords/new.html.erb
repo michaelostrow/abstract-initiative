@@ -3,13 +3,8 @@
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class=>"form-horizontal" }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
+    <%= f.button :submit, "Send me reset password instructions", :class => "btn-success controls" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
