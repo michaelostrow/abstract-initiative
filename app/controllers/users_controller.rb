@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def dashboard
     if current_user.nil?
-      redirect_to new_user_session_path, message => "You'll need to log in to view your dashboard!"
+      redirect_to new_user_session_path, :alert => "You'll need to log in to view your dashboard!"
     end
   end
   

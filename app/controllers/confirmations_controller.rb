@@ -4,11 +4,15 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_navigational_format?
-      if sign_in(resource_name, resource)
-        respond_with_navigational(resource){ redirect_to tour_path }
-      end
+      sign_in(resource_name, resource)
+      respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
-      respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
+      respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :new }
     end
+  end
+
+  protected
+  def after_confirmation_path_for(resource_name, resource)
+    dashboard_path
   end
 end

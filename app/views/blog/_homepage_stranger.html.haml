@@ -1,0 +1,8 @@
+- @new_posts.each do |post|
+  .blog-post{:class => "post-#{post.id}"}
+    %h1
+      = post.title
+      %small
+        Posted by #{post.author} #{distance_of_time_in_words_to_now post.created_at} ago
+    .blog-content
+      = post.content

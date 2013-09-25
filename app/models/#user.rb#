@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   # This way, any combination can be expressed as the sum of the respective numbers
   #
   # Valid combos:
-  # 1    Visual
+AAAAAA  # 1    Visual
   # 2    Audio
   # 3    Visual, Audio
   # 4    Multimedia (i.e., movies sort of thing

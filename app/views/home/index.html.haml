@@ -2,15 +2,8 @@
 
 .row-fluid
   .span7
-    %div{:style => "padding-top:4em;padding-left:10%;"}
-      %h3 Share your work. See what other artists are up to. Connect with a growing community.
-
-      %h2{:style => "text-align:center;"} That's our Abstract Initiative.
-
-      %div{:style => "text-align:center;"}
-        =link_to "Learn More", about_path
-        |
-        =link_to "Feedback", contact_path
+    .blog
+      = render "blog/homepage_stranger"
     
   .span5
     %h1
