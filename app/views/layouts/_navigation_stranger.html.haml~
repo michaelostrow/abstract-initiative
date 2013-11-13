@@ -1,3 +1,0 @@
-.container
-  = link_to "Abstract Initiative", root_path, :class => 'brand', :style => "padding-bottom:20px;position:relative;top:10px;"
-  = render "layouts/login_navbar"

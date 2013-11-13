@@ -1,0 +1,11 @@
+.container
+  .navbar-header
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    = link_to "ABSTRACT INITIATIVE", root_path, :class => 'navbar-brand', :style => "padding-bottom:20px"
+  .navbar-collapse.collapse
+    = render "layouts/login_navbar"

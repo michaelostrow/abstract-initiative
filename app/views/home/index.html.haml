@@ -1,21 +1,28 @@
--content_for(:title, "Welcome to Abstract Initiative")
+%h1 Abstract Initiative Closed Alpha
 
-.row-fluid
-  .span7
-    .blog
-      = render "blog/homepage_stranger"
-    
-  .span5
-    %h1
-      Sign Up
-      %small &nbsp; It's really this easy!
-      %hr/
-    = simple_form_for("user", :url => user_registration_path, :html => {:class => 'form-horizontal' }) do |f|
-      = f.error_notification
-      = f.input :name, :autofocus => true
-      = f.input :email, :required => true
-      = f.input :password, :required => true
-      = f.input :password_confirmation, :required => true
-      = f.button :submit, 'Sign up!', :class => 'btn-inverse pull-right', :style => "position:relative;right:56px;"
-
-
+%p
+  Click
+  =link_to "here", users_path
+  for the list of users. 
+%p
+  Click
+  =link_to "here", sections_path
+  for the sections directory, or below for a specific section portal:
+  %ul
+    %li 
+      =link_to "Writing", section_path(:writing)
+    %li 
+      =link_to "Audio", section_path(:audio)
+    %li 
+      =link_to "Multimedia", section_path(:multimedia)
+    %li 
+      =link_to "Visual Art", section_path(:visual_art)
+  
+%p Site meta-pages:
+%ul
+  %li
+    =link_to "About", about_path
+  %li
+    =link_to "Support", contact_path
+  %li
+    =link_to "Random Piece", random_path

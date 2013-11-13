@@ -1,0 +1,116 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$borders: black;
+
+#all .navbar-brand{
+    padding-left:35px;
+    padding-top:18px;
+    font-size:50px;
+    font-family: "Passion One" !important;
+    @media (max-width: 700px){
+    color:green;
+    position:relative;
+bottom:10px;
+}   
+}
+
+body{
+ background: #effaff;
+ font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif;
+}
+
+.content{
+   margin-bottom:2em;
+   border-top:none;
+   padding:1em;
+   p.display{
+      font-family: 'Jacques Francois', serif;
+   }    
+}
+
+.highlight {
+     border-right: 1px solid $borders;
+     border-bottom: 1px solid $borders;
+     padding: 1em;
+     
+     h1,h2,h3,h4{
+      text-align:center;
+     }
+}
+
+.user-prof-pic{
+        width: 50px;
+}
+
+.ads {
+     border-bottom: 1px solid $borders;
+border-left: 1px solid $borders;
+     padding: 1em;
+     h1,h2,h3,h4{
+      text-align:center;
+     }
+}
+
+.advertisement{
+   padding-top: 1em;
+}
+
+.navbar, #all .search-query{
+font-family: "Sansita One", cursive;
+font-size:18px;
+}
+
+.username-link{
+font-family:sans-serif;
+color:#336699;
+font-weight:bold;
+&:hover{
+color:black;
+}
+}
+
+a.no-underline:hover{
+text-decoration:none;
+}
+
+.navbar_login{
+	position:relative;
+        margin-top:20px;
+        input[type=text], input[type=password]{
+        border-radius: 0px;
+        width:150px;
+	margin-right:4px;
+        }
+        input[type=submit]{
+        padding: 3px 6px;
+	position:relative;left:5px;
+        }
+
+        font-family: sans-serif;
+
+        a.password_forgot{
+        font-size:11px;
+        }
+
+        .field_with_errors{
+        display:inline-block;
+        }
+
+        }
+
+.hero-unit.welcome{
+text-align:center;
+border-radius:3px;
+background: inherit;
+}
+
+.error_explanation{
+background: #F08080;
+padding: 1em;
+padding-top: 0px;
+border-radius: 2px;
+border: 1px solid #000;
+margin:2em;
+}

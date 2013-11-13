@@ -1,0 +1,21 @@
+-content_for(:title, "Welcome to Abstract Initiative")
+
+.row
+  .col-md-7
+    .blog.well
+      = render "blog/homepage_stranger"
+    
+  .col-md-5
+    %h1
+      Sign Up
+      %small &nbsp; It's really this easy!
+      %hr/
+    = simple_form_for("user", :url => user_registration_path, :html => {:class => 'form-horizontal' }) do |f|
+      = f.error_notification
+      = f.input :name, :autofocus => true
+      = f.input :email, :required => true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :required => true
+      = f.button :submit, 'Sign up!', :class => 'btn-success', :style => "position:relative;top:15px;left:283px;"
+ 
+

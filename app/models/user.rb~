@@ -1,0 +1,53 @@
+class User < ActiveRecord::Base
+  rolify
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :role_ids, :as => :admin
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  validates :name, :presence => true
+  
+  def active_for_authentication?
+    false
+  end
+  
+  def profile_pic
+    prof_pic or "/assets/profile-placeholder.png"
+  end
+
+
+  # Note about artist types: Borrowing from Linux file modes a bit, so that we can
+  # express different types as a number. We'll use
+  #
+  # 1: Visual Art
+  # 2: Audio Art
+  # 4: Multimedia
+  # 8: Writing
+  #
+  # This way, any combination can be expressed as the sum of the respective numbers
+  #
+  # Valid combos:
+  # 1    Visual
+  # 2    Audio
+  # 3    Visual, Audio
+  # 4    Multimedia (i.e., movies sort of thing
+  # 5    Visual, Multimedia
+  # 6    Audio, Multimedia
+  # 7    Visual, Audio, Multimedia
+  # 8    Writing
+  # 9    Visual, Writing
+  # 10   Audio, Writing
+  # 11   Visual, Audio, Writing
+  # 12   Multimedia, Writing
+  # 13   Visual, Multimedia, Writing
+  # 14   Audio, Multimedia, Writing
+  # 15   Everything (Visual, Audio, Multimedia, Writing)  
+  
+  
+  
+end

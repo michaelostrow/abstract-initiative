@@ -4,27 +4,26 @@ AbstractInitiative::Application.routes.draw do
   end
   root :to => 'home#index'
 
-  get '/about', :to => "home#about", :as => :about
-  get '/artists', :to => "home#artists", :as => :artists
-  get '/sections', :to => "home#sections", :as => :sections
-  get '/random', :to => "home#random", :as => :random
 
-  get '/confirming', :to => "home#confirming", :as => :confirming
-  
+  # Site stuff
+  get '/about', :to => "home#about", :as => :about
+  get '/blog', :to => "blog#index", :as => :blog
+  get '/404', :to => "home#404", :as => :not_found
+  get '/random', :to => "home#random", :as => :random
   get '/support/feedback', :to => "home#contact", :as => :contact
- 
+
+  # Sections
+  get '/sections', :to => "home#sections", :as => :sections
+  get '/section/:section', to: "home#section", as: :section
+
+  # User account bullshit
+  get '/confirming', :to => "home#confirming", :as => :confirming 
   get '/dashboard', :to => "users#dashboard", :as => :dashboard 
-  
   devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
   devise_scope :user do
     get '/welcome', :to => "home#tour", :as => :tour
     get '/tour', :to => "home#tour2", :as => :tour2
   end
-  
   resources :users, :only => [:index, :show]
-
-  get '/blog', :to => "blog#index", :as => :blog
-  
-  get '/404', :to => "home#404", :as => :not_found
 
 end

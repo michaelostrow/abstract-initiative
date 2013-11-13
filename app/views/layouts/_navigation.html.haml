@@ -1,17 +1,1 @@
-%form.navbar-search.pull-right.hidden-phone{:style=>"position:relative;right:5px;top:10px;", :action=>"/search", :method => "get"}
-  %input.span2.search-query{:type=>"text", :placeholder=>"Search", :name=>"query"}
-.container
-  = link_to "ABSTRACT INITIATIVE", root_path, :class => 'brand', :style => "padding-bottom:20px;position:relative;top:10px;"
-  %br{:style => "clear:both;"}
-  %ul.nav
-    %li
-      = link_to 'About', about_path
-    %li
-      = link_to 'Blog', blog_path
-    %li
-      = link_to 'Artists', artists_path
-    %li
-      = link_to 'Sections', sections_path
-    %li
-      = link_to 'Random', random_path
-
+= link_to "ABSTRACT INITIATIVE", root_path, :class => 'navbar-brand'

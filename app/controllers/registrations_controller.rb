@@ -8,8 +8,8 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => confirming_path
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
-        expire_session_data_after_sign_in!
-        redirect_to confirming_path, :locals => {:confirms => true}
+        expire_data_after_sign_in!
+        redirect_to confirming_path
       end
     else
       clean_up_passwords resource

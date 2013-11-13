@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def index
-    authorize! :index, @user, :message => 'Logged in as a NON-admin account.'
     @users = User.all
   end
 

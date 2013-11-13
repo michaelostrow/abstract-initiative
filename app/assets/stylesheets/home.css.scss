@@ -4,15 +4,19 @@
 
 $borders: black;
 
-#all .brand{
+#all .navbar-brand{
     padding-left:35px;
-    padding-top:25px;
+    padding-top:18px;
     font-size:50px;
     font-family: "Passion One" !important;
+    @media (max-width: 700px){
+    color:green;
+    position:relative;
+bottom:10px;
+}   
 }
 
 body{
- background: #effaff;
  font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
@@ -71,22 +75,22 @@ text-decoration:none;
 }
 
 .navbar_login{
+	position:relative;
         margin-top:20px;
         input[type=text], input[type=password]{
         border-radius: 0px;
-        height: 10px;
         width:150px;
-        position:relative;top:4px;
+	margin-right:4px;
         }
         input[type=submit]{
-        height:25px;
+        padding: 3px 6px;
+	position:relative;left:5px;
         }
 
         font-family: sans-serif;
 
         a.password_forgot{
         font-size:11px;
-        position:relative;left:200px;bottom:6px;
         }
 
         .field_with_errors{

@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    <link href='http://fonts.googleapis.com/css?family=Passion+One|Jacques+Francois|Sansita+One|Kavoon|Raleway' rel='stylesheet' type='text/css'>
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "Abstract Initiative"
+      %meta{:content => content_for?(:description) ? yield(:description) : "Abstract Initiative", :name => "description"}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = yield(:head)
+  %body#all{:class => "#{controller_name} #{action_name}"}
+    .navbar.navbar-inverse.navbar-static-top#navbar{:role => "navigation"}
+      .navbar-inner
+        - if current_user
+          = render 'layouts/navigation'
+        - else
+          = render 'layouts/navigation_stranger'
+    #main{:role => "main"}
+      .container
+        .col-md-12
+          .content                    
+            = render 'layouts/messages'
+            = yield
+          %footer
+      / ! end of .container
+    / ! end of #main
