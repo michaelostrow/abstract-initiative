@@ -22,11 +22,6 @@ class HomeController < ApplicationController
     redirect_to root_path if flash.none?
   end
 
-  def section
-    @section = params[:section]
-    render "#{@section}/index"
-  end
-
   def random
     flash[:message] = "Not a thing yet"
     redirect_to root_path

@@ -26,5 +26,10 @@ class HomeController < ApplicationController
     @section = params[:section]
     render "#{@section}/index"
   end
+
+  def random
+    flash[:message] = "Not a thing yet"
+    redirect_to root_path
+  end
   
 end

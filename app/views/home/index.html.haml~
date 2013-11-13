@@ -18,3 +18,11 @@
     %li 
       =link_to "Visual Art", section_path(:visual_art)
   
+%p Site meta-pages:
+%ul
+  %li
+    =link_to "About", about_path
+  %li
+    =link_to "Support", contact_path
+  %li
+    =link_to "Random Piece", random_path

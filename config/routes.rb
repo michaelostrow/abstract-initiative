@@ -14,7 +14,12 @@ AbstractInitiative::Application.routes.draw do
 
   # Sections
   get '/sections', :to => "home#sections", :as => :sections
-  get '/section/:section', to: "home#section", as: :section
+  get '/section/writing', to: "writing#index", as: :writing
+  get '/section/audio', to: "audio#index", as: :audio
+  get '/section/music', to: "audio#index"
+  get '/section/video', to: "multimedia#index"
+  get '/section/multimedia', to: "multimedia#index", as: :multimedia
+  get '/section/visual_art', to: "visual_art#index", as: :visual_art
 
   # User account bullshit
   get '/confirming', :to => "home#confirming", :as => :confirming 
