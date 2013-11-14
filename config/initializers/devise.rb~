@@ -252,8 +252,4 @@ Devise.setup do |config|
 
   config.secret_key = '09f4b43047a8f9d663b00922ca0b19d0c70ab26c94bc9a7fe404fec293ade914b879e5a3e4fd1b359ef77493b2ce426b66ef064d8b929742e24951ea80327d3d'
 
-  require "omniauth-facebook"
-  config.omniauth :facebook, "APP_ID", "APP_SECRET"
-
-
 end

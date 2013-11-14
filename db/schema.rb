@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113234936) do
+ActiveRecord::Schema.define(:version => 20131114020117) do
 
   create_table "blog_posts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20131113234936) do
     t.string   "name"
     t.string   "prof_pic"
     t.text     "bio"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

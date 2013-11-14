@@ -18,5 +18,9 @@ class HomeController < ApplicationController
     flash[:message] = "Not a thing yet"
     redirect_to root_path
   end
+
+  def contact
+    @fancy_action_name = "Support"
+  end
   
 end

@@ -10,7 +10,7 @@ AbstractInitiative::Application.routes.draw do
   get '/blog', :to => "blog#index", :as => :blog
   get '/404', :to => "home#404", :as => :not_found
   get '/random', :to => "home#random", :as => :random
-  get '/support/feedback', :to => "home#contact", :as => :contact
+  get '/support', :to => "home#contact", :as => :contact
 
   # Sections
   get '/sections', :to => "home#sections", :as => :sections

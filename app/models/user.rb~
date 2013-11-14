@@ -27,6 +27,12 @@ class User < ActiveRecord::Base
     "<#User: #{name}>"
   end
 
+  def trades
+    roles.dup.delete_if do |r|
+      r.name == 'admin' or /mod/.match(r.name)
+    end
+  end
+
 
   ##############################
   #  Class methods

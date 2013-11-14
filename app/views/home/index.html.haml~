@@ -26,3 +26,27 @@
     =link_to "Support", contact_path
   %li
     =link_to "Random Piece", random_path
+
+%p
+  Click
+  =link_to "here", new_user_session_path
+  to sign in, or
+  =link_to "here", new_user_registration_path
+  to sign up
+
+.well
+  %h3 Ye Olde TODO List
+  %ul
+    %li Change user detail pages URLs from /users/6 to /user/fakey-fuckerson (i.e., implement url slugs)
+    %li
+      Enable Zerigo DNS for root domain forwarding to heroku
+      %b Done, pending DNS propagation
+    %li Facebook OAuth integration with User accounts
+    %li Actually create database objects corresponding to each type of {section, upload}
+    %li File-uploading interface
+    %li Users follow users
+    %li Messaging system
+    %li Comments system
+    %li Section moderation by users
+
+      

@@ -6,12 +6,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
   # NOTE: Disable confirming module for now!!!
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  # Needed for facebook oauth
+  attr_accessible :provider, :uid, :name
+
 
   validates :name, :presence => true
   

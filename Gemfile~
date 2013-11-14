@@ -20,7 +20,7 @@ gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'rolify'
-gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form'
 gem 'thin'
 group :assets do
   gem 'therubyracer', :platform=>:ruby
