@@ -1,7 +1,7 @@
 AbstractInitiative::Application.routes.draw do
 
   # OAUTH
-  match '/users/auth/:provider/callback' => 'authentications#create'
+  match '/users/auth/:provider/callback' => 'authentications#create'  
 
   authenticated :user do
     root :to => "users#dashboard"
