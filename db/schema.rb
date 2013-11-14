@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114020117) do
+ActiveRecord::Schema.define(:version => 20131114031439) do
 
   create_table "blog_posts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(:version => 20131114020117) do
     t.text     "bio"
     t.string   "provider"
     t.string   "uid"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "url_slug"
+    t.string   "gender"
+    t.string   "facebook_link"
+    t.string   "location"
+    t.string   "hometown"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
