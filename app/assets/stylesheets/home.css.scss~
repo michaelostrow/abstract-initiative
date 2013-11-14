@@ -17,7 +17,6 @@ bottom:10px;
 }
 
 body{
- background: #effaff;
  font-family: 'Raleway', 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
@@ -55,11 +54,6 @@ border-left: 1px solid $borders;
 
 .advertisement{
    padding-top: 1em;
-}
-
-.navbar, #all .search-query{
-font-family: "Sansita One", cursive;
-font-size:18px;
 }
 
 .username-link{
@@ -113,4 +107,12 @@ padding-top: 0px;
 border-radius: 2px;
 border: 1px solid #000;
 margin:2em;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+.smaller{
+	font-size: 55%;
 }

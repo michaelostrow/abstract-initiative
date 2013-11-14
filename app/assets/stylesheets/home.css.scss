@@ -56,11 +56,6 @@ border-left: 1px solid $borders;
    padding-top: 1em;
 }
 
-.navbar, #all .search-query{
-font-family: "Sansita One", cursive;
-font-size:18px;
-}
-
 .username-link{
 font-family:sans-serif;
 color:#336699;
@@ -112,4 +107,12 @@ padding-top: 0px;
 border-radius: 2px;
 border: 1px solid #000;
 margin:2em;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+.smaller{
+	font-size: 55%;
 }

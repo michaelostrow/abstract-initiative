@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    <link href='http://fonts.googleapis.com/css?family=Passion+One|Jacques+Francois|Sansita+One|Kavoon|Raleway' rel='stylesheet' type='text/css'>
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     %title= content_for?(:title) ? yield(:title) : "Abstract Initiative"
     %meta{:content => content_for?(:description) ? yield(:description) : "Abstract Initiative", :name => "description"}
@@ -8,8 +9,8 @@
     = javascript_include_tag :application
     = csrf_meta_tags
     = yield(:head)
-  %body
-    %header.navbar.navbar-fixed-top
+  %body#all{:class => "#{controller_name} #{action_name}"}
+    %header.navbar.navbar-inverse.navbar-static-top{:role => "navigation"}
       %nav.navbar-inner
         .container
           = render 'layouts/navigation'
@@ -18,6 +19,7 @@
         .content
           .row
             .span12
+              = render 'layouts/breadcrumb'
               = render 'layouts/messages'
               = yield
           %footer

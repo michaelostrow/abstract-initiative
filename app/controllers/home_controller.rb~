@@ -5,12 +5,7 @@ class HomeController < ApplicationController
       redirect_to user_path current_user
     end
     @users = User.all    
-    render :layout => "stranger"
-  end
-
-  def index # Development mode index
-    @users = User.all
-    @new_posts = BlogPost.all
+#    render :layout => "stranger"
   end
 
   def tour
@@ -20,11 +15,6 @@ class HomeController < ApplicationController
   def confirming    
     @conf = session[:conf]
     redirect_to root_path if flash.none?
-  end
-
-  def section
-    @section = params[:section]
-    render "#{@section}/index"
   end
 
   def random

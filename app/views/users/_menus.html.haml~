@@ -1,0 +1,8 @@
+:javascript
+  $(".active").removeClass('active');
+  var detail = location.href.replace(/^.*detail\//,"");
+  if(/^http:\/\//.test(detail)){
+  detail = "profile";
+  }
+  $("a#"+detail).addClass('active');
+  $("a#"+detail).parent().addClass('active');

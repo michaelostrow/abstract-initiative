@@ -18,5 +18,5 @@
           %td= user.roles.map do |r| r.name.titleize end
           %td
             = render user
-            %a.btn.btn-mini{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change roles...          
+            %a.btn.btn-default.btn-xs{"data-toggle" => "modal", :href => "#role-options-#{user.id}", :type => "button"} Change roles...          
           %td= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user

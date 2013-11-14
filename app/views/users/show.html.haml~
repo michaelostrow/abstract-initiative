@@ -1,0 +1,68 @@
+-title(@user.name)
+
+.container
+  .row
+    .col-md-2
+      /menu
+      %ul.nav.nav-pills.nav-stacked
+        %li.active
+          %a.active.profile-view#profile{:href=>user_detail_path(@user.id, 'profile'), :"data-pjax" => "#pjax"}
+            Overview
+        - @user.trades.map {|r| r.name}.each do |view|
+          %li
+            =link_to "#{view.titlecase} Portfolio", user_detail_path(@user.id, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
+        - if current_user == @user
+          - @user.untrades.each do |t|
+            %li
+              =link_to "#{view.titlecase}: Get Started", user_detail_path(@user.id, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
+        
+
+      - begin
+        - if current_user == @user
+          %hr/
+          %h4.text-center
+            Account
+          %ul.nav.nav-pills.nav-stacked.logged-in-nav
+            %li
+              =link_to "Messages", user_detail_path(@user.id, "messages"), :class=>"profile-view", :id => "messages",:"data-pjax" => "#pjax"
+            %li
+              =link_to "Settings", user_detail_path(@user.id, "settings"), :class=>"profile-view", :id => "settings",:"data-pjax" => "#pjax"
+      -rescue
+    .col-md-3
+      / profpic
+      %img.img-polaroid.img-rounded#profile_pic{:src=>@user.profile_pic, :style=>"width:100%;"}
+    .col-md-7
+      / actions/name
+      %h1.h0.text-center
+        =yield(:title)
+        - unless current_user == @user or current_user.nil?
+          #friendship_form{:style=>"display:inline;"}
+            - if current_user.friended? @user
+              - if current_login[:type] == "user"
+                =render "friendships/destroy", :user => current_user, :friend => @user
+              -else
+                =render "company_friendships/destroy", :user => current_user, :friend => @user
+            -else
+              - if current_login[:type] == "user"
+                =render "friendships/add", :user => current_user, :friend => @user
+              -else
+                =render "company_friendships/add", :user => current_user, :friend => @user
+      .well.text-center
+        Member for
+        =distance_of_time_in_words_to_now @user.created_at
+        - @user.trades.each do |t|
+          &nbsp;&bullet;&nbsp;
+          =t.name
+      %p
+        = @user.bio
+        -if @user.bio.blank?
+          - if @user == current_user
+            You haven't written a bio yet.
+            = link_to "Would you like to?", user_edit_path
+          -else
+            = @user.name
+            has not written a bio yet.
+  %hr/
+  .row#pjax
+    = render :file => "users/detail_#{@detail}"
+

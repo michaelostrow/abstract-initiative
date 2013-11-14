@@ -1,0 +1,8 @@
+%ol.breadcrumb
+  %li
+    = link_to "Abstract Initiative", root_path
+  - if controller_name != "registrations" and controller_name != "sessions"
+    %li
+      = link_to controller_name.titlecase, action: "index"
+  %li.active
+    = @fancy_action_name or action_name.titlecase

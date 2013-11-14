@@ -10,13 +10,13 @@
   for the sections directory, or below for a specific section portal:
   %ul
     %li 
-      =link_to "Writing", section_path(:writing)
+      =link_to "Writing", writing_path
     %li 
-      =link_to "Audio", section_path(:audio)
+      =link_to "Audio", audio_path
     %li 
-      =link_to "Multimedia", section_path(:multimedia)
+      =link_to "Multimedia", multimedia_path
     %li 
-      =link_to "Visual Art", section_path(:visual_art)
+      =link_to "Visual Art", visual_art_path
   
 %p Site meta-pages:
 %ul

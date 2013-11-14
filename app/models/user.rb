@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
+
+
+  # NOTE: Disable confirming module for now!!!
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
@@ -13,7 +16,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
   
   def active_for_authentication?
-    false
+    true
   end
   
   def profile_pic
@@ -22,6 +25,12 @@ class User < ActiveRecord::Base
 
   def to_s
     "<#User: #{name}>"
+  end
+
+  def trades
+    roles.dup.delete_if do |r|
+      r.name == 'admin' or /mod/.match(r.name)
+    end
   end
 
 

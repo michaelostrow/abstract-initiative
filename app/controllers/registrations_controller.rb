@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  def create
+  def create_eventual # Disabled confirming for now
     build_resource(sign_up_params)
     if resource.save
       if resource.active_for_authentication?
@@ -15,6 +15,12 @@ class RegistrationsController < Devise::RegistrationsController
       clean_up_passwords resource
       respond_with resource
     end
+  end
+
+  def new
+    @fancy_action_name = "Sign Up"
+    build_resource({})
+    respond_with self.resource
   end
 
 end

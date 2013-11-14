@@ -22,13 +22,19 @@ AbstractInitiative::Application.routes.draw do
   get '/section/visual_art', to: "visual_art#index", as: :visual_art
 
   # User account bullshit
+  get 'users/:id/detail/:property', to: "users#detail", as: "user_detail"
+  get 'profile/edit', to: "users#edit", as: "user_edit"
   get '/confirming', :to => "home#confirming", :as => :confirming 
   get '/dashboard', :to => "users#dashboard", :as => :dashboard 
-  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations' }
+  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', sessions: 'sessions'}
   devise_scope :user do
     get '/welcome', :to => "home#tour", :as => :tour
     get '/tour', :to => "home#tour2", :as => :tour2
   end
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :update]
+
+  # OAUTH
+  match '/users/auth/:provider/callback' => 'authentications#create'
+  get 'shared/facebook', to: "shared#facebook", as: "fbook_login"
 
 end

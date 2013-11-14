@@ -1,0 +1,27 @@
+hr.smallrule{
+padding-top:2px;
+margin-top:2px;
+}
+
+.user-prof-pic{
+        width: 50px;
+}
+
+$nav_base: #ddeeff;
+
+ ul.nav > li > a{
+color: white;
+background: darken($nav_base, 20%);
+&:hover{
+color:black;
+}
+}
+
+ul.nav > li.active > a{
+color:white;
+background:darken($nav_base, 30%);
+&:hover{
+background:darken($nav_base, 30%);
+color:white;
+}
+}

@@ -1,0 +1,46 @@
+hr.smallrule{
+padding-top:2px;
+margin-top:2px;
+}
+
+.user-prof-pic{
+        width: 50px;
+}
+
+$nav_base: #ddeeff;
+
+ ul.nav > li > a{
+color: white;
+background: darken($nav_base, 20%);
+&:hover{
+color:black;
+}
+}
+
+ul.nav > li.active > a{
+color:white;
+background:darken($nav_base, 30%);
+&:hover{
+background:darken($nav_base, 30%);
+color:white;
+}
+}
+
+$logged_in_nav_base: #ffddaa;
+
+ul.nav.logged-in-nav > li > a{
+color: black;
+background: darken($logged_in_nav_base, 10%);
+&:hover{
+color:red;
+}
+}
+
+ul.nav.logged-in-nav > li.active > a{
+color:white;
+background:darken($logged_in_nav_base, 30%);
+&:hover{
+background:darken($logged_in_nav_base, 30%);
+color:white;
+}
+}

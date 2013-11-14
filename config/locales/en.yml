@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  unauthorized:
+    update:
+      user: "Only site-wide administrators may alter user accounts."

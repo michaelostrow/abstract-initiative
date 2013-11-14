@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:new, :index, :show, :dashboard, :detail]
+
   def index
     @users = User.all
   end
@@ -6,9 +9,8 @@ class UsersController < ApplicationController
   def show
     Rails::logger.info "test"
     @user = User.find(params[:id])
-    if current_user == @user
-      redirect_to dashboard_path
-    end
+    @fancy_action_name = @user.name
+    @detail = "profile"
   end
 
   def dashboard
@@ -18,17 +20,16 @@ class UsersController < ApplicationController
   end
   
   def update
-    authorize! :update, @user, :message => 'Logged in as a NON-admin account.'
+    
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], :as => :admin)
-      redirect_to users_path, :notice => "User updated."
+    if @user.update_attributes(params[:user], as: :admin)
+      redirect_to :back, :notice => "Updated #{@user.name}'s account."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to :back, :alert => "Unable to update user."
     end
   end
     
   def destroy
-    authorize! :destroy, @user, :message => 'Logged in as a NON-admin account.'
     user = User.find(params[:id])
     unless user == current_user
       user.destroy
@@ -37,4 +38,18 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+
+  def detail    
+    @user = User.find params[:id]
+    if request.xhr?
+      render "detail_#{params[:property]}", :layout => false
+    else
+      @detail = params[:property]
+      @fancy_action_name = @detail.titlecase
+      render "show"
+    end
+  end
+
+
 end
