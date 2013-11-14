@@ -101,7 +101,9 @@ class User < ActiveRecord::Base
     self.prof_pic = open("http://graph.facebook.com/#{auth['uid']}/picture?type=large&height=400&redirect=false"){|s| JSON.parse(s.readlines.first)['data']['url']}
     #self.first_login = true
     # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
-    authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+    self.provider = auth['provider']
+    self.uid = auth['uid']
+    self.token = auth['credentials']['token']
     create_slug
   end
 
