@@ -31,7 +31,7 @@
         =yield(:title)
         - unless current_user == @user or current_user.nil?
           #friendship_form{:style=>"display:inline;"}
-            Friendship stuff goes here, not implemented yet
+            /Friendship stuff goes here, not implemented yet
       .well.text-center
         Member for
         =distance_of_time_in_words_to_now @user.created_at
