@@ -1,4 +1,8 @@
 AbstractInitiative::Application.routes.draw do
+
+  # OAUTH
+  match '/users/auth/:provider/callback' => 'authentications#create'
+
   authenticated :user do
     root :to => "users#dashboard"
   end
@@ -32,9 +36,5 @@ AbstractInitiative::Application.routes.draw do
     get '/tour', :to => "home#tour2", :as => :tour2
   end
   resources :users, :only => [:index, :show, :update]
-
-  # OAUTH
-  match '/users/auth/:provider/callback' => 'authentications#create'
-  get 'shared/facebook', to: "shared#facebook", as: "fbook_login"
 
 end
