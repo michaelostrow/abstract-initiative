@@ -11,12 +11,6 @@
         - @user.trades.map {|r| r.name}.each do |view|
           %li
             =link_to "#{view.titlecase} Portfolio", user_detail_path(@user.id, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
-        - if current_user == @user
-          - @user.untrades.each do |t|
-            %li
-              =link_to "#{view.titlecase}: Get Started", user_detail_path(@user.id, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
-        
-
       - begin
         - if current_user == @user
           %hr/

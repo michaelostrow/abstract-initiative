@@ -63,6 +63,6 @@
             = @user.name
             has not written a bio yet.
   %hr/
-  .row#pjax
+  .row#pjax{:'data-pjax-container' => true}
     = render :file => "users/detail_#{@detail}"
 
