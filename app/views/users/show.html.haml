@@ -31,16 +31,7 @@
         =yield(:title)
         - unless current_user == @user or current_user.nil?
           #friendship_form{:style=>"display:inline;"}
-            - if current_user.friended? @user
-              - if current_login[:type] == "user"
-                =render "friendships/destroy", :user => current_user, :friend => @user
-              -else
-                =render "company_friendships/destroy", :user => current_user, :friend => @user
-            -else
-              - if current_login[:type] == "user"
-                =render "friendships/add", :user => current_user, :friend => @user
-              -else
-                =render "company_friendships/add", :user => current_user, :friend => @user
+            Friendship stuff goes here, not implemented yet
       .well.text-center
         Member for
         =distance_of_time_in_words_to_now @user.created_at
