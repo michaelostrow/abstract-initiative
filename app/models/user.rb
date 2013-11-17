@@ -97,10 +97,10 @@ class User < ActiveRecord::Base
     end
     self.first_name = auth['extra']['raw_info']['first_name']
     self.last_name = auth['extra']['raw_info']['last_name']
-    self.name = "#{self.first_name} #{self.last_name}"
+    self.name = "#{auth['extra']['raw_info']['first_name']} #{auth['extra']['raw_info']['last_name']}"
     self.facebook_link = auth['extra']['raw_info']['link']
     self.prof_pic = open("http://graph.facebook.com/#{auth['uid']}/picture?type=large&height=400&redirect=false"){|s| JSON.parse(s.readlines.first)['data']['url']}
-    #self.first_login = true
+    self.first_login = true
     # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
     self.provider = auth['provider']
     self.uid = auth['uid']
