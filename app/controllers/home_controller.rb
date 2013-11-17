@@ -1,10 +1,4 @@
 class HomeController < ApplicationController
-  def index_eventual
-    @new_posts = BlogPost.all
-    @users = User.all    
-#    render :layout => "stranger"
-  end
-
   def tour
     current_user.update_attribute(:first_login, false)
     redirect_to root_path if current_user.nil?

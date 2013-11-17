@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  skip_authorize_resource :only => [:new, :index, :show, :dashboard, :detail]
+#  load_and_authorize_resource
+#  skip_authorize_resource :only => [:new, :index, :show, :dashboard, :detail]
+# stupid asshole cancan module doesn't work right
 
   def edit
     @user = current_user
