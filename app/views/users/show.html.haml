@@ -10,7 +10,7 @@
             Overview
         - @user.trades.map {|r| r.name}.each do |view|
           %li
-            =link_to "#{view.titlecase} Portfolio", user_detail_path(@user.id, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
+            =link_to "#{view.titlecase} Portfolio", user_detail_path(@user.safe_slug, view.gsub(/ /,"-")), :class=>"profile-view", :id=>view.gsub(/ /,'-'), :"data-pjax" => "#pjax"            
       - begin
         - if current_user == @user
           %hr/
@@ -18,9 +18,9 @@
             Account
           %ul.nav.nav-pills.nav-stacked.logged-in-nav
             %li
-              =link_to "Messages", user_detail_path(@user.id, "messages"), :class=>"profile-view", :id => "messages",:"data-pjax" => "#pjax"
+              =link_to "Messages", user_detail_path(@user.safe_slug, "messages"), :class=>"profile-view", :id => "messages",:"data-pjax" => "#pjax"
             %li
-              =link_to "Settings", user_detail_path(@user.id, "settings"), :class=>"profile-view", :id => "settings",:"data-pjax" => "#pjax"
+              =link_to "Settings", user_detail_path(@user.safe_slug, "settings"), :class=>"profile-view", :id => "settings",:"data-pjax" => "#pjax"
       -rescue
     .col-md-3
       / profpic

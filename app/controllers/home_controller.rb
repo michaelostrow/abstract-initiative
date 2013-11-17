@@ -23,4 +23,18 @@ class HomeController < ApplicationController
     @fancy_action_name = "Support"
   end
   
+  def first_login
+    @user = current_user    
+    if @user.nil?
+      redirect_to root_path
+    end
+    begin
+      if not @user.first_login
+        redirect_to user_edit_path
+      end
+    rescue
+      # Rails is going full retard, so we'll rescue the error that should never happen
+    end
+  end
+
 end

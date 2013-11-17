@@ -2,15 +2,31 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => [:new, :index, :show, :dashboard, :detail]
 
+  def edit
+    @user = current_user
+  end
+
   def index
     @users = User.all
   end
 
   def show
-    Rails::logger.info "test"
-    @user = User.find(params[:id])
-    @fancy_action_name = @user.name
     @detail = "profile"
+    if not current_user
+      flash[:alert] = "You need to sign in to view user accounts."
+      redirect_to root_url
+    end
+    if params[:ident].to_i == 0
+      @user = User.find_by_url_slug params[:ident]
+    else
+      @user = User.find params[:ident]
+    end
+    if @user.nil?
+      flash[:alert] = "No such member exists."
+      redirect_to root_url
+    else
+      @fancy_action_name = @user.name
+    end
   end
 
   def dashboard
@@ -20,12 +36,20 @@ class UsersController < ApplicationController
   end
   
   def update
-    
-    @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], as: :admin)
-      redirect_to :back, :notice => "Updated #{@user.name}'s account."
-    else
-      redirect_to :back, :alert => "Unable to update user."
+    @user = current_user     
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        @user.slugify_slug
+        if @user.first_login
+          format.html { redirect_to tour_path, notice: 'Okay, thanks for the updates!' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to user_path(@user.url_slug), notice: 'Okay, thanks for the updates!' }
+        end        
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
     
@@ -41,7 +65,11 @@ class UsersController < ApplicationController
 
 
   def detail    
-    @user = User.find params[:id]
+    if params[:ident].to_i == 0
+      @user = User.find_by_url_slug params[:ident]
+    else
+      @user = User.find params[:ident]
+    end
     if request.xhr?
       render "detail_#{params[:property]}", :layout => false
     else
@@ -50,6 +78,5 @@ class UsersController < ApplicationController
       render "show"
     end
   end
-
 
 end

@@ -26,15 +26,15 @@ AbstractInitiative::Application.routes.draw do
   get '/section/visual_art', to: "visual_art#index", as: :visual_art
 
   # User account bullshit
-  get 'users/:id/detail/:property', to: "users#detail", as: "user_detail"
-  get 'profile/edit', to: "users#edit", as: "user_edit"
+  get '/welcome(/)', to: "home#first_login", as: "first_login"
   get '/confirming', :to => "home#confirming", :as => :confirming 
   get '/dashboard', :to => "users#dashboard", :as => :dashboard 
   devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', sessions: 'sessions'}
-  devise_scope :user do
-    get '/welcome', :to => "home#tour", :as => :tour
-    get '/tour', :to => "home#tour2", :as => :tour2
-  end
-  resources :users, :only => [:index, :show, :update]
+
+  put 'user/:ident', to: "users#update", as: "user_update"
+  get 'users(/)', to: "users#index", as: "users"
+  get 'user/:ident', to: "users#show", as: "user"
+  get 'user/:ident/detail/:property', to: "users#detail", as: "user_detail"
+  get 'profile/edit', to: "users#edit", as: "user_edit"
 
 end
