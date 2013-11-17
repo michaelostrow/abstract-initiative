@@ -27,13 +27,8 @@ class HomeController < ApplicationController
     @user = current_user    
     if @user.nil?
       redirect_to root_path
-    end
-    begin
-      if not @user.first_login
-        redirect_to user_edit_path
-      end
-    rescue
-      # Rails is going full retard, so we'll rescue the error that should never happen
+    else
+      redirect_to user_path(@user.safe_slug) unless @user.first_login
     end
   end
 

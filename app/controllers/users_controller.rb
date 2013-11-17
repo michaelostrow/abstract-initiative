@@ -37,12 +37,10 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
-    first_login = @user.first_login
     respond_to do |format|
-      params[:user][:first_login] = false
       if @user.update_attributes(params[:user])
         @user.slugify_slug
-        if first_login
+        if @user.first_login
           format.html { redirect_to tour_path, notice: 'Okay, thanks for the updates!' }
           format.json { head :no_content }
         else

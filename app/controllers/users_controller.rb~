@@ -36,11 +36,13 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_user     
+    @user = current_user
+    first_login = @user.first_login
     respond_to do |format|
+      params[:user][:first_login] = false
       if @user.update_attributes(params[:user])
         @user.slugify_slug
-        if @user.first_login
+        if first_login
           format.html { redirect_to tour_path, notice: 'Okay, thanks for the updates!' }
           format.json { head :no_content }
         else
@@ -69,6 +71,13 @@ class UsersController < ApplicationController
       @user = User.find_by_url_slug params[:ident]
     else
       @user = User.find params[:ident]
+    end
+    if params[:property] == "messages"
+      if params[:m]
+        @messages_tab = params[:m]
+      else
+        @messages_tab = "inbox"
+      end
     end
     if request.xhr?
       render "detail_#{params[:property]}", :layout => false

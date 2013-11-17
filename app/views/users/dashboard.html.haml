@@ -4,22 +4,6 @@
     You're logged in as #{current_user.name}.
     = link_to "View your public page", current_user.url, :class => ""
 
-%p Here's everything we know about this user:
-%p 
-  = debug current_user
-%p Your account has the following roles:
-%ul
-  - current_user.roles.each do |r|
-    %li
-      =r.name
-  - if current_user.roles.empty?
-    (None yet.)
-
-%a.btn.btn-default{"data-toggle" => "modal", :href => "#role-options-#{current_user.id}", :type => "button"} Manage Roles
-= render current_user
-
-%hr.featurette-divider
-
 .well
   %jumbotron
     %h2 About this page
@@ -33,4 +17,4 @@
       %li User account settings as a sub-page, maybe a tab
 
 %p
-  =link_to "Log out?", destroy_user_session_path, :method => :delete
+  =link_to "Log out", destroy_user_session_path, :method => :delete

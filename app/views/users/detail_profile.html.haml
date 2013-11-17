@@ -11,8 +11,24 @@
 
 .col-md-6
   / More
-  %h3.smallheading.text-left More About #{@user.name}
+  %h3.smallheading.text-left More About #{@user.first_name}
   %hr.smallrule/
-  dick...
+  %dl.dl-horizontal
+    %dt Gender:
+    %dd
+      = @user.gender.titlecase or "Unspecified"
+    %dt Location:
+    %dd
+      = @user.location or "Unspecified"
+    %dt Hometown:
+    %dd
+      = @user.hometown or "Unspecified"
+    %dt Last seen:
+    %dd
+      = distance_of_time_in_words_to_now @user.last_sign_in_at
+      ago
+    %dt Facebook link:
+    %dd
+      = link_to "http://www.facebook.com/#{@user.facebook_link}", "http://www.facebook.com/#{@user.facebook_link}"
 
 = render "menus"
