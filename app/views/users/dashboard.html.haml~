@@ -1,6 +1,8 @@
 %h1
   Dashboard
-  %small You're logged in as #{current_user.name}.
+  %small
+    You're logged in as #{current_user.name}.
+    = link_to "View your public page", current_user, :class => ""
 
 %p Here's everything we know about this user:
 %p 

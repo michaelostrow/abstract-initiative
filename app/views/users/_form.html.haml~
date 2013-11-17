@@ -1,0 +1,18 @@
+= simple_form_for current_user, :url => "/user/#{current_user.url_slug}", :html=>{:class=>"form-horizontal"} do |f|  
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :email
+
+  %hr/
+
+  =f.input :location
+  =f.input :hometown
+  
+  = f.input :gender, collection: [:male, :female, :unspecified], default: :unspecified
+
+  =f.input :bio
+  
+  %hr/
+  = f.input :url_slug, :label => "Custom URL:"
+  .form-actions
+    = f.button :submit, "Continue &rarr;".html_safe, :class => "btn btn-primary"

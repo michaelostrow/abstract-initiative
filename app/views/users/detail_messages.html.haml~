@@ -1,0 +1,27 @@
+.span12
+  %h3.smallheading.text-center Your Messages
+  %ul.nav.nav-tabs#messages-tab-list
+    %li.active
+      %a.active{:href => "#inbox", :'data-toggle'=> "tab"}
+        Inbox
+    %li
+      %a{:href => "#sent", :'data-toggle'=> "tab"}
+        Sent
+    %li
+      %a{:href => "#compose", :'data-toggle'=> "tab"}
+        Compose
+
+  .tab-content
+    .tab-pane.fade.in#inbox{:class => 'active'}
+      INBOX
+    .tab-pane.fade#sent
+      SENT
+    .tab-pane.fade#compose
+      COMPOSE
+        
+= render "menus"
+:javascript
+  $(document).ready(function() {
+  $('#messages-tab-list a:first').tab('show');
+  });
+      

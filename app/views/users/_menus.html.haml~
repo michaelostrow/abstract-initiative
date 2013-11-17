@@ -1,5 +1,5 @@
 :javascript
-  $(".active").removeClass('active');
+  $(".active").not('.breadcrumb-active').removeClass('active');
   var detail = location.href.replace(/^.*detail\//,"");
   if(/^http:\/\//.test(detail)){
   detail = "profile";

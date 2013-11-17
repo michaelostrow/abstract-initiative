@@ -1,0 +1,24 @@
+-title("Welcome to Abstract Initiative!")
+
+.container
+  .row
+    .col-md-3
+      %img.img-polaroid.img-rounded#profile_pic{:src=>current_user.profile_pic, :style=>"width:100%;"}
+    .col-md-9
+      %h1
+        =yield(:title)
+        %small
+          Customize Profile Information
+      .well
+        %p Your new account is almost ready, but we need you to look over the data we scraped from Facebook, just to make sure it's accurate (and to change anything, if you'd like). For now, we'll just use your facebook profile photo, but that'll change in the future.
+        %p
+          This data comes from
+          =link_to "your public Facebook page", current_user.facebook_link
+          , which you authorized when you created your account.
+          =link_to "Learn more", contact_path
+
+  .row-fluid
+    .span3
+    .span5
+      = render "users/form"
+    .span4

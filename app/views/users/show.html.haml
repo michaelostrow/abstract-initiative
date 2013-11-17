@@ -6,7 +6,7 @@
       /menu
       %ul.nav.nav-pills.nav-stacked
         %li.active
-          %a.active.profile-view#profile{:href=>user_detail_path(@user.id, 'profile'), :"data-pjax" => "#pjax"}
+          %a.active.profile-view#profile{:href=>user_detail_path(@user.safe_slug, 'profile'), :"data-pjax" => "#pjax"}
             Overview
         - @user.trades.map {|r| r.name}.each do |view|
           %li

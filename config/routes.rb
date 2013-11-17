@@ -31,10 +31,10 @@ AbstractInitiative::Application.routes.draw do
   get '/dashboard', :to => "users#dashboard", :as => :dashboard 
   devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', sessions: 'sessions'}
 
+  get '/tour(/)', to: "home#tour", as: "tour"
   put 'user/:ident', to: "users#update", as: "user_update"
   get 'users(/)', to: "users#index", as: "users"
   get 'user/:ident', to: "users#show", as: "user"
   get 'user/:ident/detail/:property', to: "users#detail", as: "user_detail"
-  get 'profile/edit', to: "users#edit", as: "user_edit"
 
 end

@@ -116,3 +116,7 @@ margin:2em;
 .smaller{
 	font-size: 55%;
 }
+
+.breadcrumb{
+border: 1px solid gainsboro;
+}

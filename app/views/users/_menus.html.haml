@@ -1,6 +1,6 @@
 :javascript
   $(".active").not('.breadcrumb-active').removeClass('active');
-  var detail = location.href.replace(/^.*detail\//,"");
+  var detail = location.href.replace(/^.*detail\//,"").replace(/\?.*$/,'');
   if(/^http:\/\//.test(detail)){
   detail = "profile";
   }

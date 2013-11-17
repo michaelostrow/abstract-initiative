@@ -20,10 +20,9 @@ class User < ActiveRecord::Base
 
   # Needed for facebook oauth
   attr_accessible :provider, :uid, :name
-
   
   # Data we'll scrape from facebook
-  attr_accessible :first_name, :last_name, :url_slug, :gender, :prof_pic, :facebook_link, :location, :hometown, :bio  
+  attr_accessible :first_name, :last_name, :url_slug, :gender, :prof_pic, :facebook_link, :location, :hometown, :bio, :first_login
 
   validates :name, :presence => true
   

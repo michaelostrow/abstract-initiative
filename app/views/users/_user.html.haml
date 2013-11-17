@@ -8,7 +8,7 @@
         .modal-body
           -if user.has_role :admin
             %p.alert.alert-success
-              Hey, you're an admin! We'll leave that one off this list so you don't accidentally lock yourself out of the site like a big fucking idiot.
+              This user is an administrator.
           = f.input :role_ids, :collection => Role.all_except_admin, :as => :check_boxes, :label_method => lambda {|t| t.name.titleize}, :label => false, :item_wrapper_class => 'inline', checked: user.role_ids
         .modal-footer
           = f.submit "Change Roles", :class => "btn"
