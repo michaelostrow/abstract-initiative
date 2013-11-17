@@ -4,5 +4,9 @@
   - if controller_name != "registrations" and controller_name != "sessions"
     %li
       = link_to controller_name.titlecase, action: "index"
-  %li.active
-    = @fancy_action_name or action_name.titlecase
+  - if controller_name == "users" and action_name == "detail"
+    %li.active.breadcrumb-active
+      = @user.name
+  - else
+    %li.active.breadcrumb-active
+      = @fancy_action_name or action_name.titlecase

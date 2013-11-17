@@ -97,6 +97,7 @@ class User < ActiveRecord::Base
     end
     self.first_name = auth['extra']['raw_info']['first_name']
     self.last_name = auth['extra']['raw_info']['last_name']
+    self.name = "#{self.first_name} #{self.last_name}"
     self.facebook_link = auth['extra']['raw_info']['link']
     self.prof_pic = open("http://graph.facebook.com/#{auth['uid']}/picture?type=large&height=400&redirect=false"){|s| JSON.parse(s.readlines.first)['data']['url']}
     #self.first_login = true
@@ -124,13 +125,6 @@ class User < ActiveRecord::Base
     prof_pic or "/assets/profile-photo-placeholder.jpg"
   end
 
-  def name
-    if first_name.nil? and last_name.nil?
-      "User"
-    end
-    "#{first_name} #{last_name}"
-  end
- 
   def url
     "/user/#{safe_slug}"
   end
