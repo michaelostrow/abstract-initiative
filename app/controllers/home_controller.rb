@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def tour
-    current_user.update_attributes({:first_login => false}, :as => :admin)
+    current_user.update_attribute(:first_login, false)
     redirect_to root_path if current_user.nil?
   end
 
