@@ -78,6 +78,10 @@ class UsersController < ApplicationController
         @messages_tab = "inbox"
       end
     end
+
+    if @user != current_user and (params[:property] == "settings" or params[:property] == "messages")
+      params[:property] = "profile"
+    end
     if request.xhr?
       render "detail_#{params[:property]}", :layout => false
     else
