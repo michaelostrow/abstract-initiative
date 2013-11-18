@@ -29,6 +29,6 @@
       ago
     %dt Facebook link:
     %dd
-      = link_to "http://www.facebook.com/#{@user.facebook_link}", "http://www.facebook.com/#{@user.facebook_link}"
+      = link_to @user.facebook_link, @user.facebook_link
 
 = render "menus"
