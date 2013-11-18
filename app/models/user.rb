@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   require 'extensions'
 
-  after_create :set_last_sign_in_at_to_created_at
-
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -20,6 +18,8 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true
   
+  validates_uniqueness_of :url_slug
+
   def active_for_authentication?
     true
   end

@@ -48,7 +48,7 @@ class UsersController < ApplicationController
           format.html { redirect_to user_path(@user.url_slug), notice: 'Okay, thanks for the updates!' }
         end        
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to user_detail_path(current_user.safe_slug, :settings) }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
