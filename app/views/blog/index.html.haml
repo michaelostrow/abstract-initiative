@@ -5,11 +5,11 @@
     .col-md-9
       -if current_user
         -if current_user.has_role?(:mod_blog)
-          .alert.alert-success
-            %h3 Blog toolbox
+          .alert.alert-info
+            .h3 Blog toolbox
             %p
               You have moderator privileges to the Abstract Initiative blog.
-              =link_to "New Post", new_blog_path
+              =link_to "New Post", new_blog_path, class: "btn btn-default"
 
       - @posts.each do |post|
         =render "blogpost", :post => post

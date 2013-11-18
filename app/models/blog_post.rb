@@ -1,6 +1,8 @@
 class BlogPost < ActiveRecord::Base
   attr_accessible :title, :content, :submitter, :title_slug
 
+  default_scope order('created_at DESC')
+
   belongs_to :submitter, :class_name => "User"
 
   after_create :generate_title_slug

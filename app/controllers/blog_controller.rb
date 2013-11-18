@@ -8,10 +8,10 @@ class BlogController < ApplicationController
     @post = current_user.blog_posts.build(params[:blog_post])
     if @post.save
       flash[:notice] = "Posted '#{@post.title}'."
-      redirect_to "show"
+      redirect_to action: "show"
     else
       flash[:alert] = "There were some errors."
-      redirect_to "edit"
+      redirect_to action: "edit"
     end
   end
 
