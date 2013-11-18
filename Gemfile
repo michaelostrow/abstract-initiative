@@ -47,3 +47,7 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'unidecode'
+
+# Amazon S3!
+gem 'paperclip'
+gem 'aws-sdk'

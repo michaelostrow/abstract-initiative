@@ -1,0 +1,7 @@
+class BlogPost < ActiveRecord::Base
+  attr_accessible :title, :content, :submitter
+
+  belongs_to :submitter, :class_name => "User"
+  
+
+end

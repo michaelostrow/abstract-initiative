@@ -1,0 +1,14 @@
+.blogpost-container
+  .blog-header
+    =post.created_at.strftime("%A, %B %d, %Y")
+  .blog-body
+    %h1{:style=>"color:black;"} 
+      =link_to post.title, post.url
+    .text-muted
+      Posted by
+      =link_to post.submitter.name, user_path(post.submitter.safe_slug)
+      .span{:title => post.created_at, :style=>"display:inline;"}
+        #{distance_of_time_in_words_to_now post.created_at} ago
+    .blog-content
+      =post.content.html_safe
+%hr

@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   require 'extensions'
 
+  has_many :blog_posts, foreign_key: "submitter_id"
+  
+
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

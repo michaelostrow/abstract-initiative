@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   require 'extensions'
 
-  after_create :set_last_sign_in_at_to_created_at
-
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -16,16 +14,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-
-  # Needed for facebook oauth
-  attr_accessible :provider, :uid, :name
-  
-  # Data we'll scrape from facebook
-  attr_accessible :first_name, :last_name, :url_slug, :gender, :prof_pic, :facebook_link, :location, :hometown, :bio, :first_login
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :first_login, :first_name, :last_name, :url_slug, :gender, :prof_pic, :facebook_link, :location, :hometown, :bio
 
   validates :name, :presence => true
   
+  validates_uniqueness_of :url_slug
+
   def active_for_authentication?
     true
   end

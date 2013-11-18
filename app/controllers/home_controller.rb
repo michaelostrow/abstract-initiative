@@ -27,4 +27,8 @@ class HomeController < ApplicationController
     end
   end
 
+  def index
+    @new_blog_posts = BlogPost.first 5
+  end
+
 end

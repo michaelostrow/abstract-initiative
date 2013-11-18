@@ -1,2 +1,0 @@
-class VisualArtController < ApplicationController
-end

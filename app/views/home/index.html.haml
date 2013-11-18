@@ -1,52 +1,8 @@
-%h1 Abstract Initiative Closed Alpha
+%h1 
+  .text-right
+    = link_to "Sign in with Facebook!", user_omniauth_authorize_path(:facebook), :class => "btn-lg btn-primary"
+  Abstract Initiative Alpha
+%hr/
 
-.well
-  %b New!
-  = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
-
-%p
-  Click
-  =link_to "here", users_path
-  for the list of users. 
-%p
-  Click
-  =link_to "here", sections_path
-  for the sections directory, or below for a specific section portal:
-  %ul
-    %li 
-      =link_to "Writing", writing_path
-    %li 
-      =link_to "Audio", audio_path
-    %li 
-      =link_to "Multimedia", multimedia_path
-    %li 
-      =link_to "Visual Art", visual_art_path
-  
-%p Site meta-pages:
-%ul
-  %li
-    =link_to "About", about_path
-  %li
-    =link_to "Support", contact_path
-  %li
-    =link_to "Random Piece", random_path
-
-%p
-  Click
-  =link_to "here", new_user_session_path
-  to sign in, or
-  =link_to "here", new_user_registration_path
-  to sign up
-
-.well
-  %h3 Ye Olde TODO List
-  %ul
-    %li Change sign-in and sign-up pages to be facebook-only
-    %li Actually create database objects corresponding to each type of {section, upload}
-    %li File-uploading interface
-    %li Users follow users
-    %li Messaging system
-    %li Comments system
-    %li Section moderation by users
-
-      
+-@new_blog_posts.each do |post|
+  = render "blog/blogpost", :post => post

@@ -6,15 +6,19 @@ AbstractInitiative::Application.routes.draw do
   authenticated :user do
     root :to => "users#dashboard"
   end
-  root :to => 'home#index'
-
+  root :to => 'home#index'  
 
   # Site stuff
   get '/about', :to => "home#about", :as => :about
-  get '/blog', :to => "blog#index", :as => :blog
   get '/404', :to => "home#404", :as => :not_found
   get '/random', :to => "home#random", :as => :random
   get '/support', :to => "home#contact", :as => :contact
+
+  # Blog stuff
+  get '/blog', :to => "blog#index", :as => :blog
+  get '/blog/post', to: "blog#new", as: :new_blog  
+  post '/blog/post', to: "blog#create"
+  get '/blog/:month/:day/:title_slug', to: "blog#show", as: :blogpost
 
   # Sections
   get '/sections', :to => "home#sections", :as => :sections

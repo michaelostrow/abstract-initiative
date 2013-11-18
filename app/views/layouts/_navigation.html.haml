@@ -1,5 +1,12 @@
-= link_to "ABSTRACT INITIATIVE", root_path, :class => 'navbar-brand'
+- if controller_name == "blog"
+  = link_to "ABSTRACT INITIATIVE <span class='blog-brand'>>BLOG</span>".html_safe, blog_path, :class => 'navbar-brand'
+- else
+  = link_to "ABSTRACT INITIATIVE", root_path, :class => 'navbar-brand'
+  
 %p.navbar-text.navbar-right
+  -if controller_name == "blog"
+    =link_to "Main Site", root_path
+    &nbsp; | &nbsp;
   -if current_user
     Signed in as
     = link_to current_user.name, user_path(current_user.safe_slug)

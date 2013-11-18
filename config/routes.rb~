@@ -36,6 +36,5 @@ AbstractInitiative::Application.routes.draw do
   get 'users(/)', to: "users#index", as: "users"
   get 'user/:ident', to: "users#show", as: "user"
   get 'user/:ident/detail/:property', to: "users#detail", as: "user_detail"
-  get 'profile/edit', to: "users#edit", as: "user_edit"
 
 end

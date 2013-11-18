@@ -1,0 +1,7 @@
+-title(@post.title)
+
+%h2
+  =yield(:title)
+
+.well
+  =@post.content

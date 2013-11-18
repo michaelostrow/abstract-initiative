@@ -41,9 +41,7 @@
 .well
   %h3 Ye Olde TODO List
   %ul
-    %li Fix double sign-in error
     %li Change sign-in and sign-up pages to be facebook-only
-    %li Change user detail pages URLs from /users/6 to /user/fakey-fuckerson (i.e., implement url slugs)
     %li Actually create database objects corresponding to each type of {section, upload}
     %li File-uploading interface
     %li Users follow users

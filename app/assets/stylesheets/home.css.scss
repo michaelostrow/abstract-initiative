@@ -14,8 +14,18 @@ $borders: black;
     position:relative;
 bottom:10px;
 }   
+
+    &:hover{
+    .blog-brand{
+    color:yellow;
+}   
+}   
+
 }
 
+.blog-brand{
+	color:orange;
+}
 
 hr.smallrule{
 padding-top:2px;

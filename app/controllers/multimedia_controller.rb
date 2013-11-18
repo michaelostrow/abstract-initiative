@@ -1,2 +1,0 @@
-class MultimediaController < ApplicationController
-end
