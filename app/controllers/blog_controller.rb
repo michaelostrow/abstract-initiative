@@ -21,7 +21,7 @@ class BlogController < ApplicationController
 
 
   def show
-    @post = BlogPost.where("strftime('%m', created_at) = ? and strftime('%d', created_at) = ? and title_slug = ?", params["month"], params["day"], params["title_slug"]).first
+    @post = BlogPost.where("MONTH(created_at) = ? and DAY(created_at) = ? and title_slug = ?", params["month"], params["day"], params["title_slug"]).first
   end
 
 end
