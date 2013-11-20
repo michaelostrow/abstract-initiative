@@ -10,5 +10,5 @@
       .span{:title => post.created_at, :style=>"display:inline;"}
         #{distance_of_time_in_words_to_now post.created_at} ago
     .blog-content
-      =post.content
+      =post.parse
 %hr

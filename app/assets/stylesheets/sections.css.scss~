@@ -1,0 +1,3 @@
+h1#main_section_heading{
+	position:relative;bottom:30px;
+}

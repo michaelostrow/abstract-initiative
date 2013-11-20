@@ -15,4 +15,8 @@ class BlogPost < ActiveRecord::Base
     "/blog/#{created_at.month}/#{created_at.day}/#{title_slug}"
   end
 
+  def parse
+    RedCloth.new(content).to_html.html_safe
+  end
+
 end

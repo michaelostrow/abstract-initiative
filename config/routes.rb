@@ -4,7 +4,7 @@ AbstractInitiative::Application.routes.draw do
   match '/users/auth/:provider/callback' => 'authentications#create'  
 
   authenticated :user do
-    root :to => "users#dashboard"
+    #root :to => "users#dashboard"    
   end
   root :to => 'home#index'  
 
@@ -21,13 +21,8 @@ AbstractInitiative::Application.routes.draw do
   get '/blog/:month/:day/:title_slug', to: "blog#show", as: :blogpost
 
   # Sections
-  get '/sections', :to => "home#sections", :as => :sections
-  get '/section/writing', to: "writing#index", as: :writing
-  get '/section/audio', to: "audio#index", as: :audio
-  get '/section/music', to: "audio#index"
-  get '/section/video', to: "multimedia#index"
-  get '/section/multimedia', to: "multimedia#index", as: :multimedia
-  get '/section/visual_art', to: "visual_art#index", as: :visual_art
+  get '/sections', :to => "sections#index", :as => :sections
+  get '/section/:section_slug', to: "sections#show", as: :section
 
   # User account bullshit
   get '/welcome(/)', to: "home#first_login", as: "first_login"

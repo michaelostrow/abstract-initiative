@@ -8,10 +8,10 @@ class BlogController < ApplicationController
     @post = current_user.blog_posts.build(params[:blog_post])
     if @post.save
       flash[:notice] = "Posted '#{@post.title}'."
-      redirect_to "show"
+      redirect_to action: "show"
     else
       flash[:alert] = "There were some errors."
-      redirect_to "edit"
+      redirect_to action: "edit"
     end
   end
 
@@ -21,7 +21,7 @@ class BlogController < ApplicationController
 
 
   def show
-    @post = BlogPost.where("strftime('%m', created_at) = ? and strftime('%d', created_at) = ? and title_slug = ?", params["month"], params["day"], params["title_slug"]).first
+    @post = BlogPost.where("extract(month from created_at) = ? and extract(day from created_at) = ? and title_slug = ?", params["month"], params["day"], params["title_slug"]).first
   end
 
 end

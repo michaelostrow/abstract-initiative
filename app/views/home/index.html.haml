@@ -1,8 +1,17 @@
 %h1 
-  .text-right
-    = link_to "Sign in with Facebook!", user_omniauth_authorize_path(:facebook), :class => "btn-lg btn-primary"
-  Abstract Initiative Alpha
+  Abstract Initiative Pre-Alpha
+%p
+  Welcome to the development preview of 
+  %i Abstract Initiative
+  \.
+  - unless current_user
+    .text-center
+      = link_to "Sign in with Facebook!", user_omniauth_authorize_path(:facebook), :class => "btn-lg btn-primary"
+  - else
+    You're signed in as #{link_to current_user.name, current_user.url}.
 %hr/
 
+%h2 New on the Blog
+%hr/
 -@new_blog_posts.each do |post|
   = render "blog/blogpost", :post => post

@@ -1,0 +1,19 @@
+.container.marketing
+  -@sections.each_with_index do |section,i|
+    .row.featurette
+      - if i %2 == 0
+        .col-md-5
+          %img.featurette-image.img-responsive{:src => section.pic}
+      .col-md-7
+        %h2.featurette-heading
+          = link_to section.name.titleize, section.url, class: "link-muted"
+          %small.smaller.inline-block 
+            = section.subsections
+        %p.lead
+          #{pluralize User.all.size, section.doer_word}
+          &bullet;
+          0 pieces published
+      - if i % 2 != 0
+        .col-md-5
+          %img.featurette-image.img-responsive{:src => section.pic}
+    %hr.featurette-divider

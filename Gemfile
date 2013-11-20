@@ -51,3 +51,5 @@ gem 'unidecode'
 # Amazon S3!
 gem 'paperclip'
 gem 'aws-sdk'
+
+gem 'RedCloth'

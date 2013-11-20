@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118040100) do
+ActiveRecord::Schema.define(:version => 20131120020539) do
 
   create_table "blog_posts", :force => true do |t|
     t.datetime "created_at",   :null => false
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20131118040100) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "sections", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "doer_word"
+    t.text     "lead"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

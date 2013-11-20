@@ -5,7 +5,7 @@
     .col-md-7
       %h2.featurette-heading
         Writing
-        %small 
+        %small.smaller.inline-block 
           Fiction &bullet; Essays &bullet; Poetry
       %p.lead
         #{pluralize User.writers.size, "writer"}
@@ -16,7 +16,7 @@
     .col-md-7
       %h2.featurette-heading
         Visual Arts
-        %small 
+        %small.smaller.inline-block 
           Painting &bullet; Sketches &bullet; Photography
       %p.lead
         #{pluralize User.visual_artists.size, "artist"}
@@ -31,7 +31,7 @@
     .col-md-7
       %h2.featurette-heading
         Video
-        %small
+        %small.smaller.inline-block
           Shorts &bullet; Music Videos
       %p.lead
         #{pluralize User.multimedia_artists.size, "videographers"}
@@ -42,7 +42,7 @@
     .col-md-7
       %h2.featurette-heading
         Audio
-        %small
+        %small.smaller.inline-block
           Remixes &bullet; Covers &bullet; Songs
       %p.lead
         #{pluralize User.musicians.size, "musician"}

@@ -1,0 +1,15 @@
+-title(@section.name)
+
+%img#section_banner{:src => @section.banner_image}
+  
+%h1#main_section_heading
+  = @section.name
+  %small
+    at Abstract Initiative
+
+.container
+  .row
+    .col-md-4
+      %h2 New #{@section.doer_word.pluralize} this week
+    .col-md-8
+      %h2.text-center Fresh Content
